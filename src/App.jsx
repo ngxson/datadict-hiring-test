@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Grid from 'components/basic/Grid';
-import AddTodo from 'components/AddTodo';
+import TodoEditor from 'components/TodoEditor';
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -26,7 +26,7 @@ function App() {
       <GlobalStyle />
       <AppContainer>
         <Grid.Half>
-          <AddTodo />
+          <TodoEditor />
         </Grid.Half>
       </AppContainer>
     </>

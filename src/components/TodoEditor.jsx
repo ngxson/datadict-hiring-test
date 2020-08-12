@@ -4,7 +4,7 @@ import Button from 'components/basic/Button';
 import InputText from 'components/basic/InputText';
 import Textarea from 'components/basic/Textarea';
 
-class AddTodo extends React.Component {
+class TodoEditor extends React.Component {
   render() {
     return (
       <Card>
@@ -17,4 +17,4 @@ class AddTodo extends React.Component {
   }
 }
 
-export default AddTodo;
+export default TodoEditor;
