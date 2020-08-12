@@ -19,7 +19,13 @@ class TodoEditor extends React.Component {
     this.props.doAction('ADD_TODO', {
       title: this.state.title,
       content: this.state.content,
-    })
+    });
+
+    // reset input fields
+    this.setState({
+      title: '',
+      content: '',
+    });
   }
 
   render() {

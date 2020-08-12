@@ -1,6 +1,5 @@
 import React from 'react';
-import { Card, CardHeader } from 'components/basic/Card';
-import Button from 'components/basic/Button';
+import TodoCard from 'components/TodoCard';
 import withStorage from 'storage/StorageHOC';
 
 class TodoList extends React.Component {
@@ -13,12 +12,10 @@ class TodoList extends React.Component {
           </p>
         )}
         {this.props.todoList.map(todo => (
-          <Card key={todo.id}>
-            <CardHeader>{todo.title}</CardHeader>
-            <p>{todo.content}</p>
-            <Button>Edit</Button>
-            <Button color="red">Delete</Button>
-          </Card>
+          <TodoCard
+            key={todo.id}
+            todo={todo}
+          />
         ))}
       </>
     );
