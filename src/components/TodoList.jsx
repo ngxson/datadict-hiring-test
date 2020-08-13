@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoCard from 'components/TodoCard';
+import TodoEditor from 'components/TodoEditor';
 import withStorage from 'storage/StorageHOC';
-import TodoEditor from './TodoEditor';
 
 class TodoList extends React.Component {
   state = {
