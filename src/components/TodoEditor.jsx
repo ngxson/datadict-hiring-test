@@ -10,6 +10,7 @@ class TodoEditor extends React.Component {
   static propTypes = {
     todo: PropTypes.object,
     toggleEdit: PropTypes.func,
+    doAction: PropTypes.func.isRequired,
   };
   
   state = {

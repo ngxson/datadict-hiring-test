@@ -27,6 +27,7 @@ const TodoCard = function (props) {
 
 TodoCard.propTypes = {
   todo: PropTypes.object.isRequired,
+  doAction: PropTypes.func.isRequired,
   toggleEdit: PropTypes.func,
 };
 
