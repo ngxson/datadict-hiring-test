@@ -19,8 +19,15 @@ const TodoCard = function (props) {
     <Card>
       <CardHeader data-testid="todo-title">{props.todo.title}</CardHeader>
       <p data-testid="todo-content">{props.todo.content}</p>
-      <Button onClick={showEdit}>Edit</Button>
-      <Button color="red" onClick={handleDelete}>Delete</Button>
+      <Button
+        onClick={showEdit}
+        data-testid="todo-edit-btn"
+      >Edit</Button>
+      <Button
+        color="red"
+        onClick={handleDelete}
+        data-testid="todo-delete-btn"
+      >Delete</Button>
     </Card>
   );
 }

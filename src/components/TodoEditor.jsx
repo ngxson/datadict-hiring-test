@@ -70,6 +70,7 @@ class TodoEditor extends React.Component {
   }
 
   render() {
+    const testPrefix = this.state.isEdit ? 'edit' : 'new';
     return (
       <Card>
         {!this.state.isEdit && (
@@ -78,18 +79,18 @@ class TodoEditor extends React.Component {
         <InputText
           value={this.state.title}
           onChange={this.handleInputChange('title')}
-          data-testid="new-todo-title"
+          data-testid={`${testPrefix}-todo-title`}
           placeholder="Title"
         />
         <Textarea
           value={this.state.content}
           onChange={this.handleInputChange('content')}
-          data-testid="new-todo-content"
+          data-testid={`${testPrefix}-todo-content`}
           placeholder="Content"
         />
         <Button
           onClick={this.handleSaveTodo.bind(this)}
-          data-testid="new-todo-save"
+          data-testid={`${testPrefix}-todo-save`}
         >
           {this.state.isEdit ? 'Save' : 'Add'}
         </Button>
