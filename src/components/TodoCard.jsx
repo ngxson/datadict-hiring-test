@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, CardHeader } from 'components/basic/Card';
 import Button from 'components/basic/Button';
 
@@ -16,5 +17,10 @@ const TodoCard = function (props) {
     </Card>
   );
 }
+
+TodoCard.propTypes = {
+  todo: PropTypes.object.isRequired,
+  toggleEdit: PropTypes.func,
+};
 
 export default TodoCard;

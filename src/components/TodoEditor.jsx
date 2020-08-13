@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, CardHeader } from 'components/basic/Card';
 import Button from 'components/basic/Button';
 import InputText from 'components/basic/InputText';
@@ -6,6 +7,11 @@ import Textarea from 'components/basic/Textarea';
 import withStorage from 'storage/StorageHOC';
 
 class TodoEditor extends React.Component {
+  static propTypes = {
+    todo: PropTypes.object,
+    toggleEdit: PropTypes.func,
+  };
+  
   state = {
     id: null,
     title: '',
