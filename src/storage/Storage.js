@@ -14,7 +14,7 @@ const saveLocal = () => {
 }
 
 const ACTIONS = {
-  'ADD_TODO': (data) => {
+  'ADD_TODO': async (data) => {
     TODO_LIST.push({
       id: Date.now(),
       title: data.title,
@@ -22,7 +22,7 @@ const ACTIONS = {
     });
     saveLocal();
   },
-  'EDIT_TODO': ({ id, data }) => {
+  'EDIT_TODO': async ({ id, data }) => {
     for (const todo of TODO_LIST) {
       if (todo.id === id) {
         todo.title = data.title;
@@ -32,7 +32,7 @@ const ACTIONS = {
     }
     saveLocal();
   },
-  'DELETE_TODO': (id) => {
+  'DELETE_TODO': async (id) => {
     for (const i in TODO_LIST) {
       if (TODO_LIST[i].id === id) {
         TODO_LIST.splice(i, 1);
@@ -59,7 +59,7 @@ const doAction = (tag, data) => {
   ACTIONS[tag](data);
 }
 
-const getTodoList = () => {
+const getTodoList = async () => {
   return TODO_LIST;
 }
 

@@ -7,16 +7,38 @@ import withStorage from 'storage/StorageHOC';
 
 class TodoEditor extends React.Component {
   state = {
+    id: null,
     title: '',
     content: '',
+    isEdit: false,
   };
+
+  componentDidMount() {
+    const { todo } = this.props;
+    if (todo) {
+      this.setState({
+        id: todo.id,
+        title: todo.title,
+        content: todo.content,
+        isEdit: true,
+      });
+    }
+  }
 
   handleInputChange = (name) => (event) => {
     this.setState({ [name]: event.target.value });
   }
 
   handleSaveTodo() {
-    this.props.doAction('ADD_TODO', {
+    if (this.state.isEdit) {
+      this.handleEditTodo();
+    } else {
+      this.handleCreateTodo();
+    }
+  }
+
+  async handleCreateTodo() {
+    await this.props.doAction('ADD_TODO', {
       title: this.state.title,
       content: this.state.content,
     });
@@ -28,21 +50,39 @@ class TodoEditor extends React.Component {
     });
   }
 
+  async handleEditTodo() {
+    await this.props.doAction('EDIT_TODO', {
+      id: this.state.id,
+      data: {
+        title: this.state.title,
+        content: this.state.content,
+      }
+    });
+
+    this.props.toggleEdit(false);
+  }
+
   render() {
     return (
       <Card>
-        <CardHeader>Add to list</CardHeader>
+        {!this.state.isEdit && (
+          <CardHeader>Add to list</CardHeader>
+        )}
         <InputText
+          value={this.state.title}
           onChange={this.handleInputChange('title')}
           placeholder="Title"
         />
         <Textarea
+          value={this.state.content}
           onChange={this.handleInputChange('content')}
           placeholder="Content"
         />
         <Button
           onClick={this.handleSaveTodo.bind(this)}
-        >Add</Button>
+        >
+          {this.state.isEdit ? 'Save' : 'Add'}
+        </Button>
       </Card>
     );
   }

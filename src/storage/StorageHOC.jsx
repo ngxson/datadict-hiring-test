@@ -5,17 +5,26 @@ function withStorage(WrappedComponent) {
   return class StorageHOC extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {
-        todoList: Storage.getTodoList(),
-      };
+
+      // since addTodoListListener and removeTodoListListener
+      // require the same reference for callback function,
+      // the function must be binded in advance
+      this.handleTodoListChangeBinded = this.handleTodoListChange.bind(this);
     }
 
-    componentDidMount() {
-      Storage.addTodoListListener(this.handleTodoListChange.bind(this));
+    state = {
+      todoList: [],
+    };
+
+    async componentDidMount() {
+      this.setState({
+        todoList: await Storage.getTodoList(),
+      });
+      Storage.addTodoListListener(this.handleTodoListChangeBinded);
     }
 
     componentWillUnmount() {
-      Storage.addTodoListListener(this.handleTodoListChange.bind(this));
+      Storage.removeTodoListListener(this.handleTodoListChangeBinded);
     }
 
     handleTodoListChange(todoList) {
