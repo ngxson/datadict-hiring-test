@@ -17,8 +17,8 @@ const TodoCard = function (props) {
 
   return (
     <Card>
-      <CardHeader>{props.todo.title}</CardHeader>
-      <p>{props.todo.content}</p>
+      <CardHeader data-testid="todo-title">{props.todo.title}</CardHeader>
+      <p data-testid="todo-content">{props.todo.content}</p>
       <Button onClick={showEdit}>Edit</Button>
       <Button color="red" onClick={handleDelete}>Delete</Button>
     </Card>

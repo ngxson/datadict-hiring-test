@@ -8,13 +8,13 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.2",
+    "react-scripts": "^3.4.3",
     "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js src/**/*.jsx"
   },
@@ -35,7 +35,9 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.6.0",
-    "eslint-plugin-react": "^7.20.6"
+    "eslint": "^6.6.0",
+    "eslint-plugin-react": "^7.20.6",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^5.2.1"
   }
 }

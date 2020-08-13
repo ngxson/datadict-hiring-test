@@ -15,7 +15,7 @@ const saveLocal = () => {
 
 const ACTIONS = {
   'ADD_TODO': async (data) => {
-    TODO_LIST.push({
+    TODO_LIST.unshift({
       id: Date.now(),
       title: data.title,
       content: data.content,
