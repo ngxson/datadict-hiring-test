@@ -16,6 +16,9 @@ const AppContainer = styled.div`
 const GlobalStyle = createGlobalStyle`
   body {
     background-color: #ddd;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
   }
 
   * {
